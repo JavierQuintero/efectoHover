@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <h3 id="title">DOM - Crear e insertar elementos html</h3>
+    <ul id="daysList"></ul>
+    <select id="daysSelect"></select>
+    
+    <script>
+      const days = ['Select day', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo']
+      
+      const title = document.getElementById('title')
+      const daysList = document.getElementById('daysList')
+      const daysSelect = document.getElementById('daysSelect')
+      
+      title.innerHTML = "DOM - Crear e insertar <span>elementos html</span>"
+      
+      //Crear fragmento
+      const fragment = document.createDocumentFragment()
+      
+    /*  for(let day of days){
+        const itemList = document.createElement('li')
+        itemList.textContent = day
+        fragment.appendChild(itemList)
+      }*/
+      for(let day of days){
+        const selectItem = document.createElement('option')
+        selectItem.setAttribute('value', day)
+        selectItem.textContent = day
+        fragment.appendChild(selectItem)
+      }
+      //daysList.appendChild(fragment)
+      daysSelect.appendChild(fragment)
+    </script>
+  </body>
+</html>
